@@ -1,0 +1,15 @@
+[mysql]
+ip = "mysql.host"
+port = 8806
+user = "root"
+password = "yPBJztXVAWj3n68b"
+
+[redis]
+ip = "redis.host"
+port = 6379
+password = "D1spatchEr"
+
+[http]
+port = 8080
+readTimeout = 60
+writeTimeout = 60
