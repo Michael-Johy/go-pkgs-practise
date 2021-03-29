@@ -34,4 +34,6 @@ replace (
 	github.com/Michael-Johy/go-pkgs-practise/gin/routers => ../go-pkgs-practise/gin/routers
 	github.com/Michael-Johy/go-pkgs-practise/gin/routers/api/v1v => ./gin/routers/api/v1v
 
+	github.com/Michael-Johy/go-pkgs-practise/grpc/proto/proto/grpc => ../go-pkgs-practise/grpc/proto/proto/grpc
+
 )
