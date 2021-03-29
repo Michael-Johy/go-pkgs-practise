@@ -11,7 +11,7 @@ type Tag struct {
 	CreateBy  string `json:"create_by"`
 	UpdatedAt int    `json:"updated_at"`
 	ModifyBy  string `json:"modify_by"`
-	State     int    `json:"state"`
+	State     *int   `json:"state"`
 }
 
 func GetTags(pageNum int, pageSize int, maps interface{}) (tags []Tag) {

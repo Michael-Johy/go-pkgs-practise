@@ -12,7 +12,6 @@ require (
 
 replace (
 	github.com/Michael-Johy/go-pkgs-practise/gin/conf => ../go-pkgs-practise/gin/conf
-	github.com/Michael-Johy/go-pkgs-practise/gin/middleware => ../go-pkgs-practise/gin/middleware
 	github.com/Michael-Johy/go-pkgs-practise/gin/models => ../go-pkgs-practise/gin/models
 	github.com/Michael-Johy/go-pkgs-practise/gin/models/blog => ../go-pkgs-practise/gin/models/blog
 
@@ -24,5 +23,4 @@ replace (
 	github.com/Michael-Johy/go-pkgs-practise/gin/routers => ../go-pkgs-practise/gin/routers
 	github.com/Michael-Johy/go-pkgs-practise/gin/routers/api/v1v => ./gin/routers/api/v1v
 
-	github.com/Michael-Johy/go-pkgs-practise/gin/runtime => ../go-pkgs-practise/gin/runtime
 )

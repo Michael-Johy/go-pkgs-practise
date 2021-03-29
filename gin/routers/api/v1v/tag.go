@@ -48,6 +48,7 @@ func UpdateTag(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	if blog.UpdateTag(id, tag) {
 		c.JSON(http.StatusOK, util.BuildRes(e.SUCCESS, make(map[string]interface{})))
 	} else {
