@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"github.com/Michael-Johy/go-pkgs-practise/gin/middleware"
 	"github.com/Michael-Johy/go-pkgs-practise/gin/routers/api/v1v"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -8,8 +9,12 @@ import (
 
 func InitRouter() *gin.Engine {
 	router := gin.Default()
+	gin.SetMode(gin.ReleaseMode)
+	router.POST("/login", v1v.Login)
 
 	apiV1 := router.Group("/api/v1v")
+	apiV1.Use(middleware.JWT())
+
 	apiV1.GET("/tags", v1v.GetTags)
 	apiV1.POST("/tags", v1v.CreateTag)
 	apiV1.PUT("/tags/:id", v1v.UpdateTag)

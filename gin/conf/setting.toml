@@ -13,3 +13,6 @@ password = "D1spatchEr"
 port = 8080
 readTimeout = 60
 writeTimeout = 60
+
+[app]
+JWT_SECRET = "23347$040412"

@@ -20,6 +20,8 @@ var (
 	ReadTimeout  int
 	WriteTimeout int
 
+	JwtSecret string
+
 	PageSize = 5
 )
 
@@ -48,5 +50,7 @@ func init() {
 	HTTPPORT = viper.GetInt("http.port")
 	ReadTimeout = viper.GetInt("http.readTimeout")
 	WriteTimeout = viper.GetInt("http.writeTimeout")
+
+	JwtSecret = viper.GetString("JWT_SECRET")
 
 }
