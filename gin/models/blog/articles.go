@@ -1,12 +1,17 @@
 package blog
 
-import "github.com/Michael-Johy/go-pkgs-practise/gin/models"
+import (
+	"github.com/Michael-Johy/go-pkgs-practise/gin/models"
+	"log"
+)
+import "github.com/astaxie/beego/validation"
 
 type Article struct { //gorm 约定表名articles
 	ID        int64  `json:"id"` //gorm 约定主键
 	Title     string `json:"title"`
 	Content   string `json:"content"`
-	TagId     int64  `json:"tag_id"`
+	TagId     int64  `json:"tag_id" gorm:"index"`
+	Tag       Tag    `json:"tag"`
 	Desc      string `json:"desc"`
 	CreatedAt int    `json:"created_at"` //gorm 约定创建时间字段
 	CreateBy  string `json:"create_by"`
@@ -27,6 +32,14 @@ func CreateArticle(article Article) bool {
 }
 
 func UpdateArticle(id int64, article Article) bool {
+	 valid := validation.Validation{}
+	 valid.Min(id, 1, "id").Message("ID必须大于1")
+	 if valid.HasErrors(){
+	 	for _, err := range valid.Errors{
+	 		log.Printf("%s, %s", err.Key, err.Message)
+		 }
+	 }
+
 	if ExistTag(id) {
 		result := models.DB.Model(&Tag{}).Where("id = ?", id).Updates(article)
 		return result.RowsAffected > 0
@@ -41,7 +54,7 @@ func DeleteArticle(id int64) bool {
 
 func ExistArticle(id int64) bool {
 	var article Article
-	models.DB.Model(&Article{}).Select("id").Where("id = ?", id).First(&article)
+	models.DB.Select("id").Where("id = ?", id).First(&article)
 	return article.ID > 0
 }
 

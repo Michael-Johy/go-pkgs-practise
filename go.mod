@@ -3,6 +3,7 @@ module github.com/Michael-Johy/go-pkgs-practise
 go 1.16
 
 require (
+	github.com/astaxie/beego v1.12.3
 	github.com/gin-gonic/gin v1.6.3
 	github.com/spf13/viper v1.7.1
 	github.com/unknwon/com v1.0.1
